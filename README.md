@@ -35,7 +35,7 @@ private:
 int main() {
 
   component c;
-  bool vonst binded = c.property_changed().bind([](int p) {
+  bool const binded = c.property_changed().bind([](int p) {
     std::printf("Property changed: %d\n", p);
   });
   
