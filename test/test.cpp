@@ -1,5 +1,5 @@
 ﻿#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include <doctest/doctest.h>
+#include "doctest.h"
 
 #include <pulse/pulse.hpp>
 
@@ -37,6 +37,15 @@ TEST_CASE("Binding to member") {
   pulse::signal<void()> signal;
   signal.bind(&obj, &test::method);
   REQUIRE(!!signal);
+}
+
+
+TEST_CASE("Binding to other signal") {
+  pulse::signal<void()> s1;
+  s1.bind([]{});
+  pulse::signal<void()> s2;
+  s2 = s1;
+  REQUIRE(!!s2);
 }
 
 

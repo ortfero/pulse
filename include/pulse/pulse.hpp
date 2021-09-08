@@ -67,7 +67,7 @@ namespace pulse {
       slot_ = slot;
       return true;
     }
-
+    
 
     void unbind() {
       slot_ = std::function<void(Args...)>{};
