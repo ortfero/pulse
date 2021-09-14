@@ -67,7 +67,7 @@ namespace pulse {
       slot_ = slot;
       return true;
     }
-    
+
 
     void unbind() {
       slot_ = std::function<void(Args...)>{};
@@ -93,7 +93,7 @@ namespace pulse {
 
     source() noexcept = default;
 
-    void operator ()(Args&&... args) {
+    void operator ()(Args... args) {
       if(!base_type::slot_)
         return;
       base_type::slot_(std::forward<Args>(args)...);
