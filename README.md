@@ -1,5 +1,5 @@
 # pulse
-C++ signal/slot library
+C++ 17 single-header library for signals and slots
 
 ## Snippet
 
