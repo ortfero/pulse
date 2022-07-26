@@ -37,7 +37,7 @@ namespace pulse {
         bool bind(L* listener, void (L::*slot)(Args...)) {
             if(slot_)
                 return false;
-            slot_ = [listener, slot](Args... args) { (listener->*slot)(args...); };
+            slot_ = [listener, slot](Args... args) { (listener->*slot)(std::forward<Args>(args)...); };
             return true;
         }
 
